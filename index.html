@@ -127,7 +127,6 @@
                 <li>Cypress</li>
                 <li>Selenium</li>
                 <li>Robot Framework</li>
-                <li>BrowserStack</li>
               </ul>
             </div>
             <div class="skills__group">
@@ -157,6 +156,7 @@
                 <li>Git</li>
                 <li>Jenkins</li>
                 <li>AWS</li>
+                <li>BrowserStack</li>
                 <li>GitHub Copilot</li>
                 <li>Claude AI</li>
                 <li>PowerShell</li>
@@ -418,7 +418,7 @@
           Static GitHub Pages sites can't process forms server-side, so a
           service like Formspree handles delivery to your inbox.
         -->
-          <form class="contact__form" action="https://formspree.io/f/xzdldlkl" method="POST">
+          <form id="contact-form" class="contact__form" action="https://formspree.io/f/xzdldlkl" method="POST">
             <div class="form__row">
               <label class="form__field">
                 <span>Name</span>
@@ -435,6 +435,7 @@
             </label>
             <button type="submit" class="btn btn--primary">Send message</button>
           </form>
+          <p id="form-status" class="form__status" role="status" aria-live="polite" hidden></p>
 
           <p class="contact__or">
             or email me directly at
@@ -528,6 +529,46 @@
       })
       document.getElementById("scroll-bottom").addEventListener("click", () => {
         window.scrollTo({ top: document.documentElement.scrollHeight, behavior: "smooth" })
+      })
+
+      // Contact form — submit via AJAX so the visitor stays on the page,
+      // then show an inline confirmation instead of redirecting.
+      const contactForm = document.getElementById("contact-form")
+      const formStatus = document.getElementById("form-status")
+
+      function showStatus(message, ok) {
+        formStatus.textContent = message
+        formStatus.classList.toggle("form__status--error", !ok)
+        formStatus.hidden = false
+      }
+
+      contactForm.addEventListener("submit", async (e) => {
+        e.preventDefault()
+        const button = contactForm.querySelector("button[type='submit']")
+        button.disabled = true
+
+        try {
+          const response = await fetch(contactForm.action, {
+            method: "POST",
+            body: new FormData(contactForm),
+            headers: { Accept: "application/json" },
+          })
+
+          if (response.ok) {
+            showStatus("✓ Thanks! Your message has been sent.", true)
+            contactForm.reset()
+            // Dismiss the confirmation on the next click anywhere on the page.
+            document.addEventListener("click", () => { formStatus.hidden = true }, { once: true })
+          } else {
+            const data = await response.json().catch(() => ({}))
+            const msg = data.errors ? data.errors.map((err) => err.message).join(", ") : "Something went wrong. Please try again."
+            showStatus(msg, false)
+          }
+        } catch {
+          showStatus("Network error — please try again, or email me directly.", false)
+        } finally {
+          button.disabled = false
+        }
       })
     </script>
   </body>

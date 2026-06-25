@@ -47,13 +47,21 @@ submissions server-side. It uses [Formspree](https://formspree.io) (free tier):
 2. In `index.html`, set the form's `action` to `https://formspree.io/f/<your-id>`.
    (It's currently wired to an existing form ID, `xzdldlkl`.)
 
-Submissions then arrive in your email inbox. Prefer no form? Just delete the
-`<form>` block — the direct email link below it still works.
+The form submits via JavaScript (AJAX), so visitors stay on the page and see an
+inline **"✓ Thanks! Your message has been sent."** confirmation that clears on the
+next click; submissions still arrive in your email inbox. If JavaScript is
+disabled it falls back to a normal Formspree submission. Prefer no form? Just
+delete the `<form>` block — the direct email link below it still works.
 
 ### Light / dark mode
 
 A toggle button (🌙 / ☀️) sits in the navbar. It respects the visitor's system
 preference on first visit and remembers their choice via `localStorage`.
+
+### Scroll controls
+
+Two floating buttons on the right edge (↑ / ↓) smooth-scroll to the top and
+bottom of the page.
 
 ### Favicon
 
