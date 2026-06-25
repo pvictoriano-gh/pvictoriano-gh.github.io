@@ -1,0 +1,534 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Portfolio of Patrick Victoriano, QA Engineer specializing in test automation, manual testing, and quality assurance."
+    />
+    <meta name="author" content="Patrick Victoriano" />
+    <title>Patrick Victoriano — QA Engineer</title>
+    <link rel="icon" type="image/svg+xml" href="assets/favicon.svg" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="css/qa-mode.css" />
+
+    <!-- Apply saved view/theme before first paint to avoid a flash -->
+    <script>
+      ;(function () {
+        if (localStorage.getItem("mode") === "qa") {
+          document.documentElement.setAttribute("data-mode", "qa")
+        }
+        var theme = localStorage.getItem("theme") || (window.matchMedia("(prefers-color-scheme: light)").matches ? "light" : "dark")
+        document.documentElement.setAttribute("data-theme", theme)
+      })()
+    </script>
+  </head>
+  <body>
+    <!-- ===== Header / Navigation ===== -->
+    <header class="site-header">
+      <nav class="nav container" aria-label="Primary">
+        <a href="#hero" class="nav__logo">Patrick - QA</a>
+        <div class="nav__actions">
+          <button class="theme-toggle" id="theme-toggle" type="button" aria-label="Toggle color theme">
+            <span class="theme-toggle__icon" aria-hidden="true">🌙</span>
+          </button>
+          <button class="nav__toggle" aria-expanded="false" aria-controls="nav-menu" aria-label="Toggle navigation">
+            <span></span><span></span><span></span>
+          </button>
+        </div>
+        <ul class="nav__menu" id="nav-menu">
+          <li><a href="#about">About</a></li>
+          <li><a href="#skills">Skills</a></li>
+          <li><a href="#experience">Experience</a></li>
+          <li><a href="#projects">Highlights</a></li>
+          <li><a href="#certifications">Certifications</a></li>
+          <li><a href="#education">Education</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <main>
+      <!-- ===== Hero ===== -->
+      <section id="hero" class="hero">
+        <div class="container hero__inner">
+          <p class="status qa-only" role="status">
+            <span class="status__dot" aria-hidden="true"></span>
+            <span class="status__pass">✓ Open to work</span>
+            <span class="status__sep">·</span> South Australia <span class="status__sep">·</span> QA Engineer
+          </p>
+          <p class="hero__eyebrow">Quality Assurance Engineer</p>
+          <h1 class="hero__title">Hi, I'm <span class="accent">Patrick Victoriano</span></h1>
+          <p class="hero__subtitle">
+            I help teams ship reliable software by designing thorough test strategies, building automation frameworks, and catching defects before
+            users do.
+          </p>
+          <div class="hero__actions">
+            <a href="#contact" class="btn btn--primary">Get in touch</a>
+            <a href="assets/pvictoriano-resume.pdf" class="btn btn--ghost" download>Download résumé</a>
+          </div>
+
+          <!-- Test run (QA mode only) -->
+          <p class="eyebrow qa-only">expect(candidate).toPass()</p>
+          <pre class="run qa-only" aria-hidden="true"><span class="run__cmd">$ npx playwright test</span>
+<span class="run__ok">✓</span> manual + automated testing  <span class="run__dim">(4+ y)</span>
+<span class="run__ok">✓</span> playwright · typescript     <span class="run__dim">passed</span>
+<span class="run__ok">✓</span> cypress · frameworks        <span class="run__dim">passed</span>
+<span class="run__sum">3 passed</span> · 0 failed · open to new roles</pre>
+        </div>
+      </section>
+
+      <!-- ===== About ===== -->
+      <section id="about" class="section">
+        <div class="container">
+          <p class="eyebrow qa-only">expect(background).toBeSolid()</p>
+          <h2 class="section__title">About Me</h2>
+          <div class="about">
+            <img class="about__photo" src="assets/patrick-star-superhero.png" alt="Portrait of Patrick Victoriano" />
+            <div class="about__text">
+              <p>
+                I'm a Quality Assurance Engineer with 4+ years in QA and over a decade in technology, working across financial data services to keep
+                complex software reliable. I specialise in building test automation from the ground up, bringing structure to test documentation, and
+                standardising release processes that prevent defects from ever reaching production.
+              </p>
+              <p>
+                At ICE Data Services I introduced automation to a fully manual team — building a Playwright suite that halved manual testing effort,
+                then rewriting it in Cypress mid-project when the framework pivoted, all without losing coverage. I care about clear bug reporting,
+                repeatable process, and mentoring others to ramp up fast.
+              </p>
+              <ul class="about__facts">
+                <li><strong>Location:</strong> South Australia (AU Citizen)</li>
+                <li><strong>Experience:</strong> 4+ years in QA</li>
+                <li><strong>Email:</strong> <a href="mailto:pvictoriano@pm.me">pvictoriano@pm.me</a></li>
+                <li><strong>Availability:</strong> Open to opportunities</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ===== Skills ===== -->
+      <section id="skills" class="section section--alt">
+        <div class="container">
+          <p class="eyebrow qa-only">expect(stack).toBeBattleTested()</p>
+          <h2 class="section__title">Skills &amp; Tools</h2>
+          <div class="skills">
+            <div class="skills__group">
+              <h3>Test Automation</h3>
+              <ul class="tags">
+                <li>Playwright</li>
+                <li>Cypress</li>
+                <li>Selenium</li>
+                <li>Robot Framework</li>
+                <li>BrowserStack</li>
+              </ul>
+            </div>
+            <div class="skills__group">
+              <h3>API &amp; Performance</h3>
+              <ul class="tags">
+                <li>Postman</li>
+                <li>SOAP UI</li>
+                <li>k6</li>
+                <li>JMeter</li>
+              </ul>
+            </div>
+            <div class="skills__group">
+              <h3>Languages</h3>
+              <ul class="tags">
+                <li>TypeScript</li>
+                <li>JavaScript</li>
+                <li>Python</li>
+                <li>SQL</li>
+              </ul>
+            </div>
+            <div class="skills__group">
+              <h3>Tools &amp; Platforms</h3>
+              <ul class="tags">
+                <li>Jira</li>
+                <li>Confluence</li>
+                <li>ALM</li>
+                <li>Git</li>
+                <li>Jenkins</li>
+                <li>AWS</li>
+                <li>GitHub Copilot</li>
+                <li>Claude AI</li>
+                <li>PowerShell</li>
+                <li>Bash</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ===== Experience ===== -->
+      <section id="experience" class="section">
+        <div class="container">
+          <p class="eyebrow qa-only">expect(experience).toBeProven()</p>
+          <h2 class="section__title">Experience</h2>
+          <ol class="timeline">
+            <li class="timeline__item">
+              <div class="timeline__meta">
+                <span class="timeline__date">Jul 2021 – Jun 2026</span>
+              </div>
+              <div class="timeline__content">
+                <h3>Quality Assurance Engineer — ICE Data Services Australia</h3>
+                <ul>
+                  <li>
+                    Introduced test automation to the essCert project by independently building a Playwright suite from the ground up, shifting the
+                    team away from fully manual testing and reducing manual testing effort by 50%.
+                  </li>
+                  <li>
+                    Rewrote the entire automation suite when management pivoted from Playwright to Cypress mid-project — keeping coverage intact while
+                    the app was simultaneously rebuilt on a modern framework.
+                  </li>
+                  <li>
+                    Standardised the release process with a pre-release checklist and smoke testing on every build, achieving zero critical production
+                    incidents across 6 consecutive releases.
+                  </li>
+                  <li>
+                    Cut invalid "not reproducible" bug closures by 80% by introducing a standardised bug report template (actual vs. expected, repro
+                    steps, screenshots, logs), adopted as the team-wide standard in Jira.
+                  </li>
+                  <li>
+                    Onboarded 2 QA engineers with a structured 1-month guide, KB articles and pairing sessions, halving ramp-up time from 2 months to
+                    1.
+                  </li>
+                  <li>
+                    Maintained a single source of truth for testing — high-level scenarios in Confluence for stakeholders and detailed test cases in
+                    ALM.
+                  </li>
+                </ul>
+              </div>
+            </li>
+            <li class="timeline__item">
+              <div class="timeline__meta">
+                <span class="timeline__date">Jun 2015 – Jul 2021</span>
+              </div>
+              <div class="timeline__content">
+                <h3>Customer Support Consultant — ICE Data Services Australia</h3>
+                <ul>
+                  <li>
+                    First point of contact for Level 1–2 support, resolving troubleshooting and repair issues while meeting all SLA commitments and
+                    maintaining high customer satisfaction.
+                  </li>
+                  <li>
+                    Built and maintained an internal knowledge base that helped staff resolve recurring issues faster, with all cases accurately
+                    logged in the tracking system.
+                  </li>
+                  <li>
+                    Provided reliable time and cost estimates for annual budgeting and project planning, and delivered weekly case and escalation
+                    reports to keep management informed.
+                  </li>
+                </ul>
+              </div>
+            </li>
+            <li class="timeline__item">
+              <div class="timeline__meta">
+                <span class="timeline__date">May 2012 – Oct 2014</span>
+              </div>
+              <div class="timeline__content">
+                <h3>Systems Analyst — GFT Global Markets Asia (Singapore)</h3>
+                <ul>
+                  <li>
+                    Delivered Level 1–2 technical support across a globally distributed environment spanning 8 offices (US, UK, APAC), meeting SLA
+                    targets for service restoration.
+                  </li>
+                  <li>
+                    Managed the end-to-end incident lifecycle for the Technical Support Center — assessing priority, coordinating escalations and
+                    keeping stakeholders informed until full service was restored.
+                  </li>
+                </ul>
+              </div>
+            </li>
+            <li class="timeline__item">
+              <div class="timeline__meta">
+                <span class="timeline__date">Jul 2006 – Mar 2012</span>
+              </div>
+              <div class="timeline__content">
+                <h3>Network Engineer — Fujitsu Ten Solutions Philippines</h3>
+                <ul>
+                  <li>
+                    Owned end-to-end deployment of new workstations — building the Standard Operating Environment (SOE), imaging machines,
+                    provisioning access and validating functionality before client handoff.
+                  </li>
+                  <li>
+                    Maintained OS, software and system utilities to company standards through routine patching, configuration management and hardware
+                    upgrades.
+                  </li>
+                </ul>
+              </div>
+            </li>
+          </ol>
+        </div>
+      </section>
+
+      <!-- ===== Projects ===== -->
+      <section id="projects" class="section section--alt">
+        <div class="container">
+          <p class="eyebrow qa-only">expect(work).toShipReliably()</p>
+          <h2 class="section__title">Highlights</h2>
+          <div class="projects">
+            <article class="card">
+              <h3 class="card__title">essCert Automation Suite</h3>
+              <p class="card__desc">
+                Took the initiative to shift a fully manual team toward automation by independently building a Playwright end-to-end suite from
+                scratch — reducing manual testing effort by 50%.
+              </p>
+              <ul class="tags tags--sm">
+                <li>Playwright</li>
+                <li>TypeScript</li>
+                <li>E2E</li>
+              </ul>
+            </article>
+
+            <article class="card">
+              <h3 class="card__title">Framework Migration: Playwright → Cypress</h3>
+              <p class="card__desc">
+                Rewrote the entire automation suite mid-project after a framework pivot, keeping test coverage intact while the application was
+                simultaneously being rebuilt on a modern stack.
+              </p>
+              <ul class="tags tags--sm">
+                <li>Cypress</li>
+                <li>Regression</li>
+                <li>Migration</li>
+              </ul>
+            </article>
+
+            <article class="card">
+              <h3 class="card__title">Release &amp; Bug-Reporting Standards</h3>
+              <p class="card__desc">
+                Standardised releases with a pre-release checklist and per-build smoke testing (zero critical incidents over 6 releases), and
+                introduced a bug report template that cut invalid closures by 80%.
+              </p>
+              <ul class="tags tags--sm">
+                <li>Process</li>
+                <li>Jira</li>
+                <li>Confluence</li>
+              </ul>
+            </article>
+
+            <article class="card">
+              <h3 class="card__title">Playwright Framework</h3>
+              <p class="card__desc">
+                A reusable Playwright end-to-end testing framework with the Page Object Model, typed fixtures, and environment-based
+                configuration — structured to be readable and easy to extend.
+              </p>
+              <ul class="tags tags--sm">
+                <li>Playwright</li>
+                <li>TypeScript</li>
+                <li>E2E</li>
+              </ul>
+              <div class="card__links">
+                <a href="https://github.com/pvictoriano-gh/playwright-framework" target="_blank" rel="noopener">View repository →</a>
+              </div>
+            </article>
+
+            <article class="card">
+              <h3 class="card__title">Cypress Framework</h3>
+              <p class="card__desc">
+                A Cypress testing framework covering end-to-end and component tests, with custom commands, typed environment config, and CI-ready
+                project structure.
+              </p>
+              <ul class="tags tags--sm">
+                <li>Cypress</li>
+                <li>TypeScript</li>
+                <li>E2E</li>
+              </ul>
+              <div class="card__links">
+                <a href="https://github.com/pvictoriano-gh/cypress-framework" target="_blank" rel="noopener">View repository →</a>
+              </div>
+            </article>
+
+            <article class="card">
+              <h3 class="card__title">Portfolio Website</h3>
+              <p class="card__desc">
+                This site — a dependency-free portfolio built with plain HTML, CSS, and JavaScript, hosted on GitHub Pages. Features a light/dark
+                theme and a toggleable, test-runner themed "QA mode".
+              </p>
+              <ul class="tags tags--sm">
+                <li>HTML</li>
+                <li>CSS</li>
+                <li>JavaScript</li>
+              </ul>
+              <div class="card__links">
+                <a href="https://pvictoriano-gh.github.io" target="_blank" rel="noopener">Visit site →</a>
+                <a href="https://github.com/pvictoriano-gh/pvictoriano-gh.github.io" target="_blank" rel="noopener">View repository →</a>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <!-- ===== Certifications ===== -->
+      <section id="certifications" class="section">
+        <div class="container">
+          <p class="eyebrow qa-only">expect(certs).toBeOnRecord()</p>
+          <h2 class="section__title">Certifications</h2>
+          <ul class="certs">
+            <li class="certs__item">
+              <img class="certs__logo" src="assets/microsoft_logo.jpg" alt="Microsoft logo" />
+              <span class="certs__name">Microsoft Certified Professional</span>
+              <span class="certs__issuer">Microsoft</span>
+            </li>
+            <li class="certs__item">
+              <img class="certs__logo" src="assets/linux_logo.jpg" alt="Linux Professional Institute logo" />
+              <span class="certs__name">Linux Professional Institute Certification (LPIC-1)</span>
+              <span class="certs__issuer">Linux Professional Institute (LPI)</span>
+            </li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- ===== Education ===== -->
+      <section id="education" class="section section--alt">
+        <div class="container">
+          <p class="eyebrow qa-only">expect(degree).toExist()</p>
+          <h2 class="section__title">Education</h2>
+          <ul class="certs">
+            <li class="certs__item">
+              <img class="certs__logo" src="assets/school.jpg" alt="Polytechnic University of the Philippines logo" />
+              <div class="certs__text">
+                <span class="certs__name">Polytechnic University of the Philippines</span>
+                <span class="certs__sub">Bachelor of Science in Computer Engineering</span>
+              </div>
+              <span class="certs__issuer">May 2006</span>
+            </li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- ===== Contact ===== -->
+      <section id="contact" class="section">
+        <div class="container contact">
+          <p class="eyebrow qa-only">expect(reply).toBeReceived()</p>
+          <h2 class="section__title">Get In Touch</h2>
+          <p class="contact__lead">Open to QA opportunities and collaborations.<br />Send me a message below or reach me by email.</p>
+
+          <!--
+          Contact form powered by Formspree (free tier).
+          1. Sign up at https://formspree.io and create a new form.
+          2. Replace YOUR_FORM_ID below with the ID Formspree gives you.
+          Static GitHub Pages sites can't process forms server-side, so a
+          service like Formspree handles delivery to your inbox.
+        -->
+          <form class="contact__form" action="https://formspree.io/f/xzdldlkl" method="POST">
+            <div class="form__row">
+              <label class="form__field">
+                <span>Name</span>
+                <input type="text" name="name" placeholder="Your name" required />
+              </label>
+              <label class="form__field">
+                <span>Email</span>
+                <input type="email" name="email" placeholder="you@example.com" required />
+              </label>
+            </div>
+            <label class="form__field">
+              <span>Message</span>
+              <textarea name="message" rows="5" placeholder="How can I help?" required></textarea>
+            </label>
+            <button type="submit" class="btn btn--primary">Send message</button>
+          </form>
+
+          <p class="contact__or">
+            or email me directly at
+            <a href="mailto:pvictoriano@pm.me">pvictoriano@pm.me</a>
+          </p>
+          <ul class="contact__links">
+            <li><a href="https://www.linkedin.com/in/pvictoriano">LinkedIn</a></li>
+            <li><a href="https://github.com/pvictoriano-gh">GitHub</a></li>
+            <li><a href="assets/pvictoriano-resume.pdf" download>Résumé</a></li>
+          </ul>
+        </div>
+      </section>
+    </main>
+
+    <!-- ===== Footer ===== -->
+    <footer class="site-footer">
+      <div class="container">
+        <p>
+          <button id="qa-toggle" class="qa-switch" type="button" aria-pressed="false">Turn on QA mode</button>
+        </p>
+      </div>
+    </footer>
+
+    <!-- ===== Scroll controls ===== -->
+    <div class="scroll-controls">
+      <button class="scroll-btn" id="scroll-top" type="button" aria-label="Scroll to top" title="Scroll to top">↑</button>
+      <button class="scroll-btn" id="scroll-bottom" type="button" aria-label="Scroll to bottom" title="Scroll to bottom">↓</button>
+    </div>
+
+    <script>
+      // Mobile nav toggle
+      const toggle = document.querySelector(".nav__toggle")
+      const menu = document.getElementById("nav-menu")
+      toggle.addEventListener("click", () => {
+        const open = menu.classList.toggle("nav__menu--open")
+        toggle.setAttribute("aria-expanded", String(open))
+      })
+      menu.addEventListener("click", (e) => {
+        if (e.target.tagName === "A") {
+          menu.classList.remove("nav__menu--open")
+          toggle.setAttribute("aria-expanded", "false")
+        }
+      })
+
+      // Current year in footer (footer may be removed/commented out)
+      const yearEl = document.getElementById("year")
+      if (yearEl) yearEl.textContent = new Date().getFullYear()
+
+      // Theme toggle with persistence
+      const themeToggle = document.getElementById("theme-toggle")
+      const icon = themeToggle.querySelector(".theme-toggle__icon")
+      const stored = localStorage.getItem("theme")
+      const prefersLight = window.matchMedia("(prefers-color-scheme: light)").matches
+      const initial = stored || (prefersLight ? "light" : "dark")
+
+      function applyTheme(theme) {
+        document.documentElement.setAttribute("data-theme", theme)
+        icon.textContent = theme === "light" ? "☀️" : "🌙"
+      }
+      applyTheme(initial)
+
+      themeToggle.addEventListener("click", () => {
+        const next = document.documentElement.getAttribute("data-theme") === "light" ? "dark" : "light"
+        applyTheme(next)
+        localStorage.setItem("theme", next)
+      })
+
+      // QA mode — re-skins the whole page in the test-runner style.
+      // The data-mode attribute is set pre-paint by the <head> script;
+      // here we just sync the button label and handle clicks.
+      const qaToggle = document.getElementById("qa-toggle")
+
+      function applyMode(mode) {
+        const isQa = mode === "qa"
+        document.documentElement.setAttribute("data-mode", isQa ? "qa" : "standard")
+        qaToggle.setAttribute("aria-pressed", String(isQa))
+        qaToggle.textContent = isQa ? "Turn off QA mode" : "Turn on QA mode"
+      }
+      applyMode(localStorage.getItem("mode"))
+
+      qaToggle.addEventListener("click", () => {
+        const next = document.documentElement.getAttribute("data-mode") === "qa" ? "standard" : "qa"
+        applyMode(next)
+        localStorage.setItem("mode", next)
+        window.scrollTo({ top: 0, behavior: "instant" })
+      })
+
+      // Scroll controls — smooth scroll to the top / bottom of the page
+      document.getElementById("scroll-top").addEventListener("click", () => {
+        window.scrollTo({ top: 0, behavior: "smooth" })
+      })
+      document.getElementById("scroll-bottom").addEventListener("click", () => {
+        window.scrollTo({ top: document.documentElement.scrollHeight, behavior: "smooth" })
+      })
+    </script>
+  </body>
+</html>
