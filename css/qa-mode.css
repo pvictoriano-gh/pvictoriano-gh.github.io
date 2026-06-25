@@ -1,0 +1,235 @@
+/* ============================================================
+   QA Mode — a test-runner flavoured re-skin of the whole site.
+   Activated by clicking "click this if you are a QA" in the
+   footer, which sets <html data-mode="qa">. Everything here is
+   scoped under that attribute, so the standard site is untouched
+   until QA mode is on.
+
+   Design language borrowed from the original /portfolio concept:
+   light "paper" surface, indigo accent, Space Grotesk display
+   type, JetBrains Mono accents, and pass/fail testing cues.
+   ============================================================ */
+
+/* Decorative QA-only elements are hidden in the standard view. */
+.qa-only { display: none; }
+/* Reveal QA-only elements in QA mode. Elements that need a different
+   display (e.g. the status pill's inline-flex) override this below; those
+   rules share this specificity and win by coming later in the source. */
+html[data-mode="qa"] .qa-only { display: block; }
+
+/* ---- Token remap: re-point the site's variables to the QA palette ----
+   Theme-independent tokens (fonts, radius) live here; the colour palette
+   has a light and a dark variant below, keyed on data-theme so the
+   navbar dark/light toggle works in QA mode too. */
+html[data-mode="qa"] {
+  --font-display: "Space Grotesk", system-ui, sans-serif;
+  --font-body: "Inter", system-ui, sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, "SF Mono", Menlo, monospace;
+
+  --radius: 14px;
+}
+
+/* Light QA palette (default) */
+html[data-mode="qa"],
+html[data-mode="qa"][data-theme="light"] {
+  --color-bg: #fcfcfd;          /* paper  */
+  --color-surface: #ffffff;     /* panel  */
+  --color-surface-alt: #f6f7f9; /* alt    */
+  --color-text: #1a1d23;        /* ink    */
+  --color-muted: #5c6470;
+  --color-border: #e5e8ec;      /* line   */
+  --color-accent: #5b4fe9;      /* indigo */
+  --color-accent-dark: #4338ca;
+  --shadow: 0 14px 40px -28px rgba(26, 29, 35, 0.4);
+
+  --qa-faint: #8a92a0;
+  --qa-pass: #15a24a;
+  --qa-pass-bg: #e7f6ed;
+}
+
+/* Dark QA palette — same indigo/test-runner identity on a deep slate */
+html[data-mode="qa"][data-theme="dark"] {
+  --color-bg: #0e0f1a;
+  --color-surface: #181a2a;
+  --color-surface-alt: #12131f;
+  --color-text: #e7e9f3;
+  --color-muted: #9ca3b4;
+  --color-border: #272a3d;
+  --color-accent: #8b80ff;      /* lightened indigo for contrast on dark */
+  --color-accent-dark: #7468f5;
+  --shadow: 0 14px 40px -24px rgba(0, 0, 0, 0.7);
+
+  --qa-faint: #6f7589;
+  --qa-pass: #3ddc84;
+  --qa-pass-bg: rgba(61, 220, 132, 0.12);
+}
+
+html[data-mode="qa"] body {
+  font-family: var(--font-body);
+}
+
+/* Display type for all headings */
+html[data-mode="qa"] h1,
+html[data-mode="qa"] h2,
+html[data-mode="qa"] h3,
+html[data-mode="qa"] .section__title,
+html[data-mode="qa"] .hero__title,
+html[data-mode="qa"] .card__title {
+  font-family: var(--font-display);
+  letter-spacing: -0.02em;
+}
+
+/* ---- Header ---- */
+html[data-mode="qa"] .site-header {
+  backdrop-filter: saturate(160%) blur(10px);
+}
+html[data-mode="qa"][data-theme="light"] .site-header {
+  background-color: rgba(252, 252, 253, 0.85);
+}
+html[data-mode="qa"][data-theme="dark"] .site-header {
+  background-color: rgba(14, 15, 26, 0.85);
+}
+html[data-mode="qa"] .nav__logo {
+  font-family: var(--font-mono);
+  font-weight: 500;
+}
+
+/* ---- Hero ---- */
+html[data-mode="qa"] .hero {
+  background: radial-gradient(circle at 20% 20%, rgba(91, 79, 233, 0.10), transparent 45%);
+}
+html[data-mode="qa"] .hero__eyebrow { display: none; } /* replaced by the status pill */
+html[data-mode="qa"] .hero__title { line-height: 1.07; }
+html[data-mode="qa"] .accent { color: var(--color-accent); }
+
+/* Status pill */
+html[data-mode="qa"] .status {
+  display: inline-flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 1.5rem;
+  padding: 7px 14px;
+  font-family: var(--font-mono);
+  font-size: 0.82rem;
+  color: var(--color-muted);
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: 999px;
+}
+html[data-mode="qa"] .status__dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--qa-pass);
+  animation: qa-pulse 2.4s ease-out infinite;
+}
+html[data-mode="qa"] .status__pass { color: var(--qa-pass); font-weight: 500; }
+html[data-mode="qa"] .status__sep { color: var(--qa-faint); }
+
+@keyframes qa-pulse {
+  0%   { box-shadow: 0 0 0 0 rgba(21, 162, 74, 0.4); }
+  70%  { box-shadow: 0 0 0 7px rgba(21, 162, 74, 0); }
+  100% { box-shadow: 0 0 0 0 rgba(21, 162, 74, 0); }
+}
+
+/* Terminal "test run" block */
+html[data-mode="qa"] .run {
+  font-family: var(--font-mono);
+  font-size: 0.86rem;
+  line-height: 1.85;
+  color: var(--color-text);
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius);
+  padding: 22px 24px;
+  margin-top: 0;
+  max-width: 640px;
+  overflow-x: auto;
+  box-shadow: var(--shadow);
+}
+html[data-mode="qa"] .run__cmd { color: var(--color-accent); display: block; margin-bottom: 10px; }
+html[data-mode="qa"] .run__ok { color: var(--qa-pass); font-weight: 500; }
+html[data-mode="qa"] .run__dim { color: var(--qa-faint); }
+html[data-mode="qa"] .run__sum { color: var(--qa-pass); font-weight: 500; }
+
+/* ---- Buttons ---- */
+html[data-mode="qa"] .btn--primary { color: #ffffff; }
+
+/* ---- Section eyebrows (expect(...) cues) ---- */
+html[data-mode="qa"] .eyebrow {
+  display: block;
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  color: var(--color-accent);
+  margin-bottom: 0.85rem;
+}
+/* The accent underline isn't part of the QA look. */
+html[data-mode="qa"] .section__title::after { display: none; }
+
+/* The QA test-run pair (eyebrow + terminal) sits below the hero actions. */
+html[data-mode="qa"] .hero__inner .eyebrow { margin-top: 2.75rem; }
+
+/* ---- Tags become mono pills ---- */
+html[data-mode="qa"] .tags li {
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  background: var(--color-surface-alt);
+  border-radius: 7px;
+}
+/* Small project tags become #hashtags */
+html[data-mode="qa"] .tags--sm {
+  gap: 0.5rem;
+}
+html[data-mode="qa"] .tags--sm li {
+  font-family: var(--font-mono);
+  font-size: 0.76rem;
+  color: var(--qa-faint);
+  background: none;
+  border: 0;
+  padding: 0;
+}
+html[data-mode="qa"] .tags--sm li::before { content: "#"; color: var(--color-accent); }
+
+/* ---- Skills group / cards / certs already follow the tokens ---- */
+html[data-mode="qa"] .skills__group h3 { font-family: var(--font-display); }
+html[data-mode="qa"] .timeline__date { font-family: var(--font-mono); }
+
+/* Project cards get a "passing" pill, matching the portfolio concept */
+html[data-mode="qa"] .card { position: relative; }
+html[data-mode="qa"] .card__title::after {
+  content: "passing";
+  float: right;
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  font-weight: 500;
+  padding: 4px 10px;
+  border-radius: 999px;
+  background: var(--qa-pass-bg);
+  color: var(--qa-pass);
+}
+
+/* ---- Footer / QA switch ---- */
+.site-footer .qa-switch {
+  font-family: inherit;
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--color-accent);
+  background: none;
+  border: 1px solid var(--color-border);
+  border-radius: 999px;
+  padding: 0.55rem 1.2rem;
+  cursor: pointer;
+  transition: border-color 0.2s, color 0.2s, transform 0.15s;
+}
+.site-footer .qa-switch:hover {
+  border-color: var(--color-accent);
+  transform: translateY(-2px);
+}
+html[data-mode="qa"] .qa-switch {
+  font-family: var(--font-mono);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html[data-mode="qa"] .status__dot { animation: none; }
+}
