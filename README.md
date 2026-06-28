@@ -7,7 +7,7 @@ little vanilla JavaScript. Designed to be published for free via **GitHub Pages*
 
 ```text
 portfolio-site/
-├── index.html        # Page content, structure & inline JS (theme, QA mode, scroll)
+├── index.html        # Page content, structure & inline JS (theme, QA mode, scroll, contact form)
 ├── 404.html          # Custom test-runner themed not-found page
 ├── css/
 │   ├── style.css     # Base styling (edit the :root variables to re-theme)
@@ -49,14 +49,42 @@ submissions server-side. It uses [Formspree](https://formspree.io) (free tier):
 
 The form submits via JavaScript (AJAX), so visitors stay on the page and see an
 inline **"✓ Thanks! Your message has been sent."** confirmation that clears on the
-next click; submissions still arrive in your email inbox. If JavaScript is
-disabled it falls back to a normal Formspree submission. Prefer no form? Just
+next click; submissions still arrive in your email inbox. Prefer no form? Just
 delete the `<form>` block — the direct email link below it still works.
+
+#### Spam protection
+
+Two layers keep spam out, both compatible with the on-page AJAX flow:
+
+- **Honeypot** — a hidden `_gotcha` field (off-screen via `.form__honeypot` in
+  `css/style.css`). Real visitors never see it; bots that auto-fill it get
+  silently dropped by Formspree. Works out of the box, no setup.
+- **Cloudflare Turnstile** — a privacy-friendly CAPTCHA that Formspree verifies
+  server-side. The widget sits to the left of the **Send message** button on wide
+  screens; on narrow screens the row wraps and the button drops below, left-aligned
+  with the widget (see `.form__submit-row` in `css/style.css`). A Site Key is
+  already wired into the `<div class="cf-turnstile">` in `index.html`. To run it on
+  your own form:
+  1. In the [Cloudflare dashboard](https://dash.cloudflare.com), create a
+     Turnstile widget and list the domains it may run on (add `localhost` too if
+     you want it to render during local testing). This gives a **Site Key** and
+     **Secret Key**.
+  2. Put your **Site Key** in the `data-sitekey` attribute on the
+     `<div class="cf-turnstile">` in `index.html` (replacing the existing one).
+  3. In the Formspree dashboard, enable CAPTCHA → **Cloudflare Turnstile** and
+     paste your **Secret Key**. (Leave Formspree's reCAPTCHA off — it forces a
+     redirect that breaks the AJAX flow.)
+
+  Turnstile Site Keys are domain-bound, so the widget only renders on a domain
+  listed in its Cloudflare config. On any other host (e.g. `localhost` when it
+  isn't allow-listed) it logs a harmless `400` and shows no widget.
 
 ### Light / dark mode
 
-A toggle button (🌙 / ☀️) sits in the navbar. It respects the visitor's system
-preference on first visit and remembers their choice via `localStorage`.
+A toggle button (🌙 / ☀️) sits in the navbar. New viewers default to **dark
+theme** (regardless of system preference); returning visitors keep their chosen
+theme via `localStorage`. The default is applied pre-paint in `index.html`'s
+`<head>` to avoid a flash. New viewers also start in **standard (non-QA)** mode.
 
 ### Scroll controls
 

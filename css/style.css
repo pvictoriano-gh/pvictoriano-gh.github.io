@@ -588,8 +588,28 @@ h1, h2, h3 {
   box-shadow: 0 0 0 3px rgba(45, 212, 191, 0.15);
 }
 
-.contact__form .btn {
-  justify-self: start;
+/* Turnstile widget + submit button on one row, top-aligned: widget on the left,
+   button pushed to the right so it aligns with the message box / form's right edge. */
+.form__submit-row {
+  display: flex;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.form__submit-row .btn {
+  margin-left: auto;
+}
+
+/* Honeypot — hidden anti-spam trap. Real visitors never see or fill this;
+   bots that auto-fill every field will, and Formspree drops the submission.
+   Hidden off-screen rather than display:none so naive bots still target it. */
+.form__honeypot {
+  position: absolute;
+  left: -9999px;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
 }
 
 .form__status {
@@ -670,5 +690,11 @@ h1, h2, h3 {
 
   .form__row {
     grid-template-columns: 1fr;
+  }
+
+  /* Once the submit row wraps, drop the auto margin so the button lines up
+     with the captcha's left edge instead of being pushed to the right. */
+  .form__submit-row .btn {
+    margin-left: 0;
   }
 }

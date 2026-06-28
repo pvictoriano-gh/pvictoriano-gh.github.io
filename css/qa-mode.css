@@ -1,7 +1,7 @@
 /* ============================================================
    QA Mode — a test-runner flavoured re-skin of the whole site.
-   Activated by clicking "click this if you are a QA" in the
-   footer, which sets <html data-mode="qa">. Everything here is
+   Activated by clicking "Turn on QA mode" in the footer, which
+   sets <html data-mode="qa">. Everything here is
    scoped under that attribute, so the standard site is untouched
    until QA mode is on.
 
