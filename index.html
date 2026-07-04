@@ -77,7 +77,7 @@
           </p>
           <div class="hero__actions">
             <a href="#contact" class="btn btn--primary">Get in touch</a>
-            <a href="assets/pvictoriano-resume.pdf" class="btn btn--ghost" download>Download résumé</a>
+            <a href="assets/pvictoriano-resume-qa.pdf" class="btn btn--ghost" target="_blank" rel="noopener">Download résumé</a>
           </div>
 
           <!-- Test run (QA mode only) -->
@@ -99,12 +99,12 @@
             <img class="about__photo" src="assets/patrick-star-superhero.png" alt="Portrait of Patrick Victoriano" />
             <div class="about__text">
               <p>
-                I'm a Quality Assurance Engineer with over 4 years in QA and more than 15 years in technology. I build test automation from the ground
-                up, structure test documentation, and standardise release processes so defects never reach production.
+                I'm a Quality Assurance Engineer with over 4 years developing test automation and more than 15 years in IT. I sign off releases,
+                structure test plans and documentation, and standardise release processes so critical defects never reach production.
               </p>
               <p>
                 At ICE Data Services I pioneered automation for a fully manual team. I built a Playwright suite that halved manual testing effort,
-                then rewrote it in Cypress mid-project when the framework changed, all without losing coverage. I champion clear bug reporting,
+                then rewrote it in Cypress mid-project when the app was rebuilt on a modern React framework, all without losing coverage. I champion clear bug reporting,
                 repeatable process, and fast onboarding for new engineers.
               </p>
               <ul class="about__facts">
@@ -124,6 +124,15 @@
           <p class="eyebrow qa-only">expect(stack).toBeBattleTested()</p>
           <h2 class="section__title">Skills &amp; Tools</h2>
           <div class="skills">
+            <div class="skills__group">
+              <h3>Project Management</h3>
+              <ul class="tags">
+                <li>SDLC</li>
+                <li>STLC</li>
+                <li>Agile</li>
+                <li>Scrum</li>
+              </ul>
+            </div>
             <div class="skills__group">
               <h3>Testing Types</h3>
               <ul class="tags">
@@ -151,6 +160,7 @@
             <div class="skills__group">
               <h3>API &amp; Performance</h3>
               <ul class="tags">
+                <li>REST/SOAP</li>
                 <li>Postman</li>
                 <li>SOAP UI</li>
                 <li>k6</li>
@@ -158,16 +168,20 @@
               </ul>
             </div>
             <div class="skills__group">
-              <h3>Languages</h3>
+              <h3>Languages &amp; Databases</h3>
               <ul class="tags">
                 <li>TypeScript</li>
-                <li>Python</li>
                 <li>JavaScript</li>
+                <li>Python</li>
                 <li>SQL</li>
+                <li>MySQL</li>
+                <li>MS SQL</li>
+                <li>Oracle</li>
+                <li>SQLite</li>
               </ul>
             </div>
             <div class="skills__group">
-              <h3>Test &amp; Project Management</h3>
+              <h3>Test Management</h3>
               <ul class="tags">
                 <li>Jira</li>
                 <li>Confluence</li>
@@ -184,18 +198,13 @@
               </ul>
             </div>
             <div class="skills__group">
-              <h3>Scripting &amp; Runtime</h3>
+              <h3>Runtime &amp; AI</h3>
               <ul class="tags">
+                <li>Node</li>
                 <li>Bash</li>
                 <li>PowerShell</li>
-                <li>Node</li>
                 <li>AutoIt</li>
-              </ul>
-            </div>
-            <div class="skills__group">
-              <h3>AI Assistants</h3>
-              <ul class="tags">
-                <li>Claude AI</li>
+                <li>Claude Code</li>
                 <li>GitHub Copilot</li>
               </ul>
             </div>
@@ -217,33 +226,28 @@
                 <h3>Quality Assurance Engineer — ICE Data Services Australia</h3>
                 <ul>
                   <li>
-                    Introduced test automation on the essCert project by building a Playwright suite in TypeScript from the ground up, following Page
-                    Object Model principles, running it across browsers and reducing manual testing effort by 50%.
+                    Introduced test automation on the essCert project by building a Playwright suite in TypeScript following Page Object Model principles
+                    from the ground up, running it across browsers and reducing manual testing effort by 50%.
                   </li>
                   <li>
                     Re-engineered the entire automation suite when leadership switched from Playwright to Cypress mid-project, preserving full test
-                    coverage while the app was rebuilt on a modern framework.
+                    coverage while the app was rebuilt on a modern React framework.
                   </li>
                   <li>
-                    Standardised the release process with a pre-release checklist and per-build smoke testing wired into a Jenkins pipeline with code
-                    managed in Git, achieving zero critical production incidents across 12 consecutive releases.
+                    Established a single source of truth for testing, with high-level scenarios in Confluence and detailed cases in ALM, cutting time
+                    spent searching for artifacts and keeping QA and stakeholders aligned on coverage.
                   </li>
                   <li>
-                    Slashed invalid "not reproducible" bug closures by 80% with a consistent bug report template that captured actual and expected
-                    results, reproduction steps, screenshots, and logs, and was adopted as the team-wide standard in Jira.
+                    Extended test coverage beyond the UI by building API tests in Postman and SOAP UI and using SQL to validate data integrity
+                    end-to-end, catching backend and data discrepancies before they reached production.
                   </li>
                   <li>
-                    Onboarded 2 QA engineers with a structured one-month guide, knowledge base articles in Confluence, and pairing sessions over Teams,
-                    halving ramp-up time from 2 months to 1.
+                    Acted as the final QA sign-off for production releases, gating each deployment behind a standardised pre-release checklist and smoke
+                    tests on Jenkins/Git, delivering zero critical incidents across 12 releases.
                   </li>
                   <li>
-                    Established a single source of truth for testing, with high-level scenarios in Confluence for stakeholders and detailed test cases
-                    in ALM, cutting time spent searching for test artifacts and keeping QA and stakeholders aligned on coverage.
-                  </li>
-                  <li>Built API test coverage with Postman and SOAP UI, using SQL to validate data integrity end-to-end.</li>
-                  <li>
-                    Accelerated test authoring and maintenance with Claude AI, and automated environment setup and routine checks with Bash and AWS CLI
-                    scripts against AWS-hosted test environments.
+                    Onboarded 2 QA engineers with a structured one-month guide, knowledge base articles in Confluence, and pairing sessions, halving
+                    ramp-up time from 2 months to 1.
                   </li>
                 </ul>
               </div>
@@ -256,16 +260,16 @@
                 <h3>Customer Support Consultant — ICE Data Services Australia</h3>
                 <ul>
                   <li>
-                    Served as first point of contact for Level 1 and 2 support, resolving troubleshooting and repair issues, meeting all SLA
-                    commitments, and sustaining high customer satisfaction.
+                    Designed, documented, and executed test plans and logged product defects in Jira, then led testing and troubleshooting for the SIMS
+                    project — laying the QA groundwork that led to the transition into the QA Engineer role.
                   </li>
                   <li>
-                    Built and curated an internal knowledge base in Confluence that helped staff resolve recurring issues faster, documenting all
-                    cases accurately in the tracking system.
+                    Served as first point of contact for all customer support under strict SLAs, and reduced inbound support volume by authoring
+                    customer-facing "How-To" guides in Zendesk that let staff diagnose issues faster.
                   </li>
                   <li>
-                    Produced reliable time and cost estimates for annual budgeting and project planning, and briefed management weekly through case
-                    and escalation reports, giving leadership the visibility to plan resourcing and act on recurring issues early.
+                    Migrated enterprise client systems onto the company's hosted Citrix platform and led eCertify/TridentGLOBAL version upgrades,
+                    generating recurring annual revenue while minimising client downtime.
                   </li>
                 </ul>
               </div>
@@ -278,16 +282,16 @@
                 <h3>Systems Analyst — GFT Global Markets Asia (Singapore)</h3>
                 <ul>
                   <li>
-                    Delivered Level 1 and 2 technical support across a global environment of 8 offices in the US, UK, and APAC via Salesforce,
-                    achieving SLA targets for service restoration.
+                    Automated routine restarts, checkpoint validation, and Nagios host/service onboarding for the DealBook trading platform by writing
+                    custom Bash scripts, cutting manual configuration effort by 50% and reducing human error.
                   </li>
                   <li>
-                    Directed the full incident lifecycle for the Technical Support Center, assessing priority, coordinating escalations, and keeping
-                    stakeholders informed, minimising downtime and restoring full service within SLA.
+                    Delivered L1–L2 incident and service-request support across 8 global offices (US, London, APAC), handling 20+ mission-critical
+                    trading inquiries daily and meeting tight SLAs from interruption through to restoration.
                   </li>
                   <li>
-                    Maintained knowledge base articles and standard operating procedures, documenting recurring issues and resolutions to speed up
-                    troubleshooting and onboarding across support teams.
+                    Became the Singapore team's SSL-certificate SME, centralising GFT/GAIN certificate monitoring into Nagios and fixing
+                    reporting/verification issues, documenting the process in Confluence for team self-service.
                   </li>
                 </ul>
               </div>
@@ -300,16 +304,16 @@
                 <h3>Network Engineer — Fujitsu Ten Solutions Philippines</h3>
                 <ul>
                   <li>
-                    Owned end-to-end deployment of new workstations, engineering the Standard Operating Environment, imaging machines, provisioning
-                    access, and validating functionality before client handoff, delivering production-ready machines and reducing post-handoff issues.
+                    Built test environments and ran pre/post-deployment testing across multiple OS setups, isolating incompatibilities before rollout
+                    and validating backups via restorations to safeguard near-100% availability.
                   </li>
                   <li>
-                    Handled network configuration and routing, setting up switches, VLANs, and IP addressing to keep connectivity reliable across the
-                    network.
+                    Spearheaded open-source monitoring (Nagios, Cacti, AWStats, Mailgraph, Lightsquid) and scripted backups, antivirus updates, and
+                    alerting, replacing manual checks with proactive, self-reporting infrastructure.
                   </li>
                   <li>
-                    Administered operating systems, software, and system utilities to company standards through routine patching, configuration
-                    management, and hardware upgrades, keeping systems secure, stable, and compliant.
+                    Reduced internal technical inquiries by 40% by authoring do-it-yourself troubleshooting guides for common issues and running
+                    targeted training sessions, curating the material in a shared knowledge base for staff and IT.
                   </li>
                 </ul>
               </div>
@@ -351,15 +355,15 @@
             </article>
 
             <article class="card">
-              <h3 class="card__title">Release &amp; Bug-Reporting Standards</h3>
+              <h3 class="card__title">Release Sign-Off &amp; Test Governance</h3>
               <p class="card__desc">
-                Standardised releases with a pre-release checklist and per-build smoke testing, achieving zero critical incidents over 12 releases.
-                Introduced a bug report template that cut invalid closures by 80%.
+                Acted as the final QA sign-off, gating releases behind a standardised pre-release checklist and smoke tests on Jenkins/Git for zero
+                critical incidents across 12 releases. Established a single source of truth with scenarios in Confluence and cases in ALM.
               </p>
               <ul class="tags tags--sm">
                 <li>Process</li>
-                <li>Jira</li>
-                <li>Confluence</li>
+                <li>Jenkins</li>
+                <li>ALM</li>
               </ul>
             </article>
 
@@ -503,7 +507,7 @@
           <ul class="contact__links">
             <li><a href="https://www.linkedin.com/in/pvictoriano">LinkedIn</a></li>
             <li><a href="https://github.com/pvictoriano-gh">GitHub</a></li>
-            <li><a href="assets/pvictoriano-resume.pdf" download>Résumé</a></li>
+            <li><a href="assets/pvictoriano-resume-qa.pdf" target="_blank" rel="noopener">Résumé</a></li>
           </ul>
         </div>
       </section>

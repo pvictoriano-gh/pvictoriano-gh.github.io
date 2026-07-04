@@ -32,7 +32,8 @@ light and dark palettes, so the navbar 🌙 / ☀️ toggle works there too.
    highlights, certifications, education, and social links.
 2. Assets live in the `assets/` folder:
    - `patrick-star-superhero.png` — the About photo
-   - `pvictoriano-resume.pdf` — the résumé for the download buttons
+   - `pvictoriano-resume-qa.pdf` — the résumé opened by the "Download résumé"
+     button and the Résumé link (both open the PDF in a new tab)
    - `microsoft_logo.jpg`, `linux_logo.jpg`, `school.jpg` — certification/school logos
 3. Want different colors? Edit the variables under `:root` (dark theme) and
    `[data-theme="light"]` (light theme) at the top of `css/style.css`. The QA-mode
